@@ -2,21 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>URL Rotator</title>
-  <style>
-    html, body, iframe {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      border: none;
-      overflow: hidden;
-    }
-  </style>
-</head>
-<body>
-  <iframe id="iframe" src="10.1.1.160/display/10"></iframe>
-
+  <title>URL Rotator (Redirect)</title>
   <script>
     const urls = [
       "10.1.1.160/display/10",
@@ -31,10 +17,19 @@
 
     let index = 0;
 
-    setInterval(() => {
+    function redirectLoop() {
+      window.location.href = "http://" + urls[index];
       index = (index + 1) % urls.length;
-      document.getElementById("iframe").src = urls[index];
-    }, 45000); // 45 seconds
+
+      setTimeout(() => {
+        redirectLoop();
+      }, 45000); // 45 seconds
+    }
+
+    window.onload = redirectLoop;
   </script>
+</head>
+<body>
+  <p>Loading...</p>
 </body>
 </html>
