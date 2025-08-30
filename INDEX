@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>URL Rotator</title>
+  <style>
+    html, body, iframe {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border: none;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="iframe" src="https://example.com"></iframe>
+
+  <script>
+    const urls = [
+      http://10.1.1.160/display/10",
+      "http://10.1.1.160/display/13",
+      "http://10.1.1.160/display/17",
+      "http://10.1.1.160/display/18",
+      "http://10.1.1.160/display/19",
+      "http://10.1.1.160/display/20",
+      "http://10.1.1.160/display/21",
+      "http://10.1.1.160/display/22",
+    ];
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % urls.length;
+      document.getElementById("iframe").src = urls[index];
+    }, 60000); // 60 seconds
+  </script>
+</body>
+</html>
