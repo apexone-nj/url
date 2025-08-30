@@ -15,7 +15,7 @@
   </style>
 </head>
 <body>
-  <iframe id="iframe" src="https://example.com"></iframe>
+  <iframe id="iframe" src="http://10.1.1.160/display/10"></iframe>
 
   <script>
     const urls = [
